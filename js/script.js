@@ -55,5 +55,72 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Enquiry Form Handling
+    const enquiryForm = document.getElementById('enquiryForm');
+    const formMessage = document.getElementById('formMessage');
+
+    if (enquiryForm) {
+        enquiryForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                phone: document.getElementById('phone').value.trim(),
+                service: document.getElementById('service').value,
+                message: document.getElementById('message').value.trim()
+            };
+
+            // Basic validation
+            if (!formData.name || !formData.email || !formData.message) {
+                showFormMessage('Please fill in all required fields.', 'error');
+                return;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(formData.email)) {
+                showFormMessage('Please enter a valid email address.', 'error');
+                return;
+            }
+
+            // Show loading state
+            const submitBtn = enquiryForm.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Submitting...';
+            submitBtn.disabled = true;
+
+            // Simulate form submission (replace with actual API call)
+            setTimeout(() => {
+                // Here you would typically send the data to your server
+                // For now, we'll just show a success message
+                console.log('Form Data:', formData);
+                
+                showFormMessage('Thank you for your enquiry! We will get back to you soon.', 'success');
+                enquiryForm.reset();
+                
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+
+                // Scroll to form message
+                formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 1000);
+        });
+    }
+
+    function showFormMessage(message, type) {
+        formMessage.textContent = message;
+        formMessage.className = 'form-message ' + type;
+        
+        // Hide message after 5 seconds for success messages
+        if (type === 'success') {
+            setTimeout(() => {
+                formMessage.className = 'form-message';
+                formMessage.textContent = '';
+            }, 5000);
+        }
+    }
 });
 

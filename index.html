@@ -138,6 +138,48 @@
                         <p><a href="tel:123456789">123456789</a></p>
                     </div>
                 </div>
+                
+                <!-- Enquiry Form -->
+                <div class="enquiry-form-container">
+                    <h3>Send us an Enquiry</h3>
+                    <form id="enquiryForm" class="enquiry-form">
+                        <div class="form-group">
+                            <label for="name">Full Name <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Interest</label>
+                            <select id="service" name="service">
+                                <option value="">Select a service</option>
+                                <option value="pipe-repair">Pipe Repair</option>
+                                <option value="pipeline-services">Pipeline Services</option>
+                                <option value="power-utilities">Power & Utilities</option>
+                                <option value="inspection-testing">Technical Inspection & Testing</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message <span class="required">*</span></label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Submit Enquiry</button>
+                        
+                        <div id="formMessage" class="form-message"></div>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
