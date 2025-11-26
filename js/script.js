@@ -92,21 +92,35 @@ document.addEventListener('DOMContentLoaded', function() {
             submitBtn.textContent = 'Submitting...';
             submitBtn.disabled = true;
 
-            // Simulate form submission (replace with actual API call)
-            setTimeout(() => {
-                // Here you would typically send the data to your server
-                // For now, we'll just show a success message
-                console.log('Form Data:', formData);
-                
-                showFormMessage('Thank you for your enquiry! We will get back to you soon.', 'success');
-                enquiryForm.reset();
-                
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
+            fetch('/api/enquiry', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+                .then(async response => {
+                    const data = await response.json().catch(() => ({}));
+                    if (!response.ok) {
+                        const message = data?.message || 'Unable to submit your enquiry. Please try again.';
+                        throw new Error(message);
+                    }
 
-                // Scroll to form message
-                formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }, 1000);
+                    showFormMessage(
+                        data?.message || 'Thank you for your enquiry! We will get back to you soon.',
+                        'success'
+                    );
+                    enquiryForm.reset();
+                })
+                .catch(error => {
+                    console.error('Form submission failed:', error);
+                    showFormMessage(error.message, 'error');
+                })
+                .finally(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                    formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                });
         });
     }
 
