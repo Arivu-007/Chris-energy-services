@@ -3,118 +3,338 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chris Energy Services - Helping you deliver the world's energy</title>
+    <title>Chris Energy Services – Helping You Deliver the World's Energy</title>
+    <meta name="description" content="Chris Energy Services provides expert Pipe Repair, Pipeline Services, Power & Utility Services, and Technical Inspection & Testing from Houston, TX since 2010.">
+    <meta name="keywords" content="pipe repair, pipeline services, power utilities, inspection testing, energy services, Houston Texas">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
+
+    <!-- Top Info Bar -->
+    <div class="topbar" id="topbar">
+        <div class="container">
+            <div class="topbar-content">
+                <span class="topbar-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                    Office Hours: M–F 8:00 am – 5:00 pm
+                </span>
+                <span class="topbar-divider">|</span>
+                <span class="topbar-item">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.92a16 16 0 006.12 6.12l1.28-1.28a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7 1.003.143 1.75.973 1.72 1.98z"/></svg>
+                    Field Services 24/7 Upon Request
+                </span>
+                <span class="topbar-divider">|</span>
+                <span class="topbar-item topbar-emergency">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    Emergency Dispatch: <a href="tel:123456789">123-456-7890</a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header / Navigation -->
+    <header class="header" id="header">
         <div class="container">
             <div class="header-content">
-                <div class="logo">
-                    <h1>Chris Energy Services</h1>
-                </div>
-                <nav class="nav">
-                    <button class="menu-toggle" aria-label="Toggle menu">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                    <ul class="nav-menu">
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#pipe-repair">Pipe Repair</a></li>
-                        <li><a href="#pipeline-services">Pipeline Services</a></li>
-                        <li><a href="#power-utilities">Power & Utilities</a></li>
-                        <li><a href="#inspection-testing">Inspection & Testing</a></li>
-                        <li><a href="#safety">Safety</a></li>
-                        <li><a href="#contact">Contact</a></li>
+                <a href="#" class="logo" aria-label="Chris Energy Services Home">
+                    <div class="logo-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </div>
+                    <div class="logo-text">
+                        <span class="logo-main">Chris Energy</span>
+                        <span class="logo-sub">Services</span>
+                    </div>
+                </a>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+
+                <nav class="nav" id="mainNav" aria-label="Main navigation">
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="#about" class="nav-link">About</a></li>
+                        <li class="nav-dropdown">
+                            <a href="#services" class="nav-link nav-dropdown-toggle">Services
+                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#pipe-repair">Pipe Repair</a></li>
+                                <li><a href="#pipeline-services">Pipeline Services</a></li>
+                                <li><a href="#power-utilities">Power & Utilities</a></li>
+                                <li><a href="#inspection-testing">Inspection & Testing</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#safety" class="nav-link">Safety</a></li>
+                        <li><a href="#contact" class="nav-link">Contact</a></li>
+                        <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
                     </ul>
                 </nav>
-            </div>
-            <div class="header-info">
-                <p>Office Hours: M-F 8.00 am to 5.00 pm | Field Services 24/7 Upon Request | Emergency Dispatch: <a href="tel:123456789">123456789</a></p>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <img src="images/hero-bg.png" alt="Chris Energy Services industrial facility at sunset" class="hero-img" loading="eager">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="container hero-container">
+            <div class="hero-content reveal">
+                <span class="hero-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    Trusted Since 2010 · Houston, TX
+                </span>
+                <h1 class="hero-title">Helping You Deliver<br><span class="hero-title-accent">the World's Energy</span></h1>
+                <p class="hero-desc">Expert pipe repair, pipeline services, power & utility solutions, and technical inspection for the energy sector. Serving EPC companies, pipe mills, and utility operators across the lower 48.</p>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-primary" id="heroQuoteBtn">Request a Quote</a>
+                    <a href="#services" class="btn btn-outline" id="heroServicesBtn">
+                        Explore Services
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-scroll-indicator">
+                <span>Scroll</span>
+                <div class="scroll-line"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
         <div class="container">
-            <h2 class="hero-tagline">Helping you deliver the world's energy.</h2>
+            <div class="stats-grid">
+                <div class="stat-item reveal">
+                    <span class="stat-number" data-target="15">0</span><span class="stat-suffix">+</span>
+                    <span class="stat-label">Years of Experience</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item reveal">
+                    <span class="stat-number" data-target="500">0</span><span class="stat-suffix">+</span>
+                    <span class="stat-label">Projects Completed</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item reveal">
+                    <span class="stat-number" data-target="48">0</span><span class="stat-suffix"></span>
+                    <span class="stat-label">States Served</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item reveal">
+                    <span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span>
+                    <span class="stat-label">Safety Commitment</span>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="section about-section">
         <div class="container">
-            <h2>About Chris Energy Services</h2>
-            <div class="about-content">
-                <p>Chris Energy Services was born in 2010 in Houston, TX, the Energy Capital of the world. We provide Pipe Repair, Pipeline Services, Power & Utility Services, and Technical Inspection & Testing services to Pipe Mills, Trading Companies, Master Distributors, EPC Companies, Pipeline and Utility Operators.</p>
-                <p class="tagline">Helping you deliver the world's energy.</p>
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <span class="section-badge">Who We Are</span>
+                    <h2 class="section-title">Built on Expertise,<br>Driven by Results</h2>
+                    <p class="about-lead">Chris Energy Services was born in 2010 in Houston, TX — the Energy Capital of the world. For over 15 years, we've been the trusted partner for the energy sector's most demanding challenges.</p>
+                    <p class="about-body">We deliver Pipe Repair, Pipeline Services, Power & Utility Services, and Technical Inspection & Testing to Pipe Mills, Trading Companies, Master Distributors, EPC Companies, Pipeline and Utility Operators.</p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <div class="about-feature-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                            </div>
+                            <div>
+                                <strong>Safety First</strong>
+                                <p>Zero-compromise safety culture on every job site</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+                            </div>
+                            <div>
+                                <strong>Quality Assured</strong>
+                                <p>Stringent QC standards for every project we undertake</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            </div>
+                            <div>
+                                <strong>24/7 Availability</strong>
+                                <p>Round-the-clock emergency field services upon request</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn btn-primary" id="aboutContactBtn">Work With Us</a>
+                </div>
+                <div class="about-media reveal">
+                    <div class="about-badge-card">
+                        <div class="badge-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.5 10c-.83 0-1.5-.67-1.5-1.5v-5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5z"/><path d="M20.5 10H19V8.5c0-.83.67-1.5 1.5-1.5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/><path d="M9.5 14c.83 0 1.5.67 1.5 1.5v5c0 .83-.67 1.5-1.5 1.5S8 21.33 8 20.5v-5c0-.83.67-1.5 1.5-1.5z"/><path d="M3.5 14H5v1.5c0 .83-.67 1.5-1.5 1.5S2 16.33 2 15.5 2.67 14 3.5 14z"/><path d="M14 14.5c0-.83.67-1.5 1.5-1.5h5c.83 0 1.5.67 1.5 1.5s-.67 1.5-1.5 1.5h-5c-.83 0-1.5-.67-1.5-1.5z"/><path d="M15.5 19H14v1.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5-.67-1.5-1.5-1.5z"/><path d="M10 9.5C10 8.67 9.33 8 8.5 8h-5C2.67 8 2 8.67 2 9.5S2.67 11 3.5 11h5c.83 0 1.5-.67 1.5-1.5z"/><path d="M8.5 5H10V3.5C10 2.67 9.33 2 8.5 2S7 2.67 7 3.5 7.67 5 8.5 5z"/></svg>
+                            </div>
+                        <div>
+                            <strong>Featured in Canvas Rebel</strong>
+                            <p>Recognized for industry excellence</p>
+                            <a href="#" class="badge-link">Read the Feature →</a>
+                        </div>
+                    </div>
+                    <div class="about-img-grid">
+                        <img src="images/pipe-repair.png" alt="Pipe repair technicians at work" class="about-img about-img-main">
+                        <img src="images/inspection-testing.png" alt="Pipe quality inspection" class="about-img about-img-secondary">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Featured Content Section -->
-    <section class="section featured-section">
+    <!-- Services Section -->
+    <section id="services" class="section services-section">
         <div class="container">
-            <div class="featured-content">
-                <h3>Chris's featured in Canvas Rebel magazine</h3>
-                <p class="featured-label">Featured in Canvas Rebel magazine</p>
+            <div class="section-header reveal">
+                <span class="section-badge">What We Do</span>
+                <h2 class="section-title">Our Core Services</h2>
+                <p class="section-subtitle">Comprehensive energy services delivered with precision, safety, and unmatched expertise across the United States.</p>
             </div>
-        </div>
-    </section>
 
-    <!-- Pipe Repair Section -->
-    <section id="pipe-repair" class="section service-section">
-        <div class="container">
-            <h2>Pipe Repair</h2>
-            <div class="service-content">
-                <p>Our repair division, formerly known as Synergy Pipe Services, has full repair capabilities for…</p>
-                <a href="#" class="read-more">Read More</a>
+            <!-- Pipe Repair -->
+            <div id="pipe-repair" class="service-card reveal">
+                <div class="service-img-wrap">
+                    <img src="images/pipe-repair.png" alt="Professional pipe repair service" class="service-img" loading="lazy">
+                    <div class="service-img-overlay">
+                        <span class="service-tag">Pipe Repair</span>
+                    </div>
+                </div>
+                <div class="service-body">
+                    <div class="service-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+                    </div>
+                    <h3 class="service-title">Pipe Repair</h3>
+                    <p class="service-desc">Our repair division, formerly known as Synergy Pipe Services, delivers full repair capabilities for steel pipe across all grades and specifications. From in-field emergency repairs to planned maintenance programs, our certified technicians restore your pipe assets to operational excellence.</p>
+                    <ul class="service-features">
+                        <li>In-field & shop repair capabilities</li>
+                        <li>All grades of steel pipe</li>
+                        <li>Emergency response available 24/7</li>
+                        <li>Full documentation & certifications</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary service-btn" id="pipeRepairCta">Request Pipe Repair Service</a>
+                </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Pipeline Services Section -->
-    <section id="pipeline-services" class="section service-section">
-        <div class="container">
-            <h2>Pipeline Services</h2>
-            <div class="service-content">
-                <p>Chris Energy Services provides on-site pipeline services to EPC Companies and Pipeline & Utility…</p>
-                <a href="#" class="read-more">Read More</a>
+            <!-- Pipeline Services -->
+            <div id="pipeline-services" class="service-card service-card-reverse reveal">
+                <div class="service-img-wrap">
+                    <img src="images/pipeline-services.png" alt="Aerial pipeline infrastructure" class="service-img" loading="lazy">
+                    <div class="service-img-overlay">
+                        <span class="service-tag">Pipeline Services</span>
+                    </div>
+                </div>
+                <div class="service-body">
+                    <div class="service-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="2" y1="20" x2="22" y2="20"/><path d="M5 20V8.5a2 2 0 012-2h10a2 2 0 012 2V20"/><path d="M9 20v-6a2 2 0 014 0v6"/></svg>
+                    </div>
+                    <h3 class="service-title">Pipeline Services</h3>
+                    <p class="service-desc">Chris Energy Services provides comprehensive on-site pipeline services to EPC Companies, Pipeline & Utility Operators, and Master Distributors. We handle everything from material management and logistics to on-site supervision and technical support for your most complex projects.</p>
+                    <ul class="service-features">
+                        <li>On-site project support & supervision</li>
+                        <li>Material management & logistics</li>
+                        <li>EPC company partnerships</li>
+                        <li>Nationwide deployment capability</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary service-btn" id="pipelineServicesCta">Request Pipeline Services</a>
+                </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Power & Utilities Section -->
-    <section id="power-utilities" class="section service-section">
-        <div class="container">
-            <h2>Power & Utilities</h2>
-            <div class="service-content">
-                <p>Chris Energy Services provides on-site services to Power Generation industry throughout the lower 48…</p>
-                <a href="#" class="read-more">Read More</a>
+            <!-- Power & Utilities -->
+            <div id="power-utilities" class="service-card reveal">
+                <div class="service-img-wrap">
+                    <img src="images/power-utilities.png" alt="Power generation facility at dusk" class="service-img" loading="lazy">
+                    <div class="service-img-overlay">
+                        <span class="service-tag">Power & Utilities</span>
+                    </div>
+                </div>
+                <div class="service-body">
+                    <div class="service-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    </div>
+                    <h3 class="service-title">Power & Utilities</h3>
+                    <p class="service-desc">We provide specialized on-site services to the Power Generation industry throughout the lower 48 states. Our team understands the unique demands of power plant environments and delivers the technical expertise required for reliable, efficient operations and maintenance.</p>
+                    <ul class="service-features">
+                        <li>Power plant maintenance support</li>
+                        <li>Utility operator services</li>
+                        <li>Lower 48 state coverage</li>
+                        <li>Specialized technical expertise</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary service-btn" id="powerUtilitiesCta">Request Power & Utility Services</a>
+                </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Inspection & Testing Section -->
-    <section id="inspection-testing" class="section service-section">
-        <div class="container">
-            <h2>Technical Inspection & Testing</h2>
-            <div class="service-content">
-                <p>We know it is critical to your business that the products you receive, install…</p>
-                <a href="#" class="read-more">Read More</a>
+            <!-- Inspection & Testing -->
+            <div id="inspection-testing" class="service-card service-card-reverse reveal">
+                <div class="service-img-wrap">
+                    <img src="images/inspection-testing.png" alt="Technical pipe inspection with ultrasonic equipment" class="service-img" loading="lazy">
+                    <div class="service-img-overlay">
+                        <span class="service-tag">Inspection & Testing</span>
+                    </div>
+                </div>
+                <div class="service-body">
+                    <div class="service-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                    </div>
+                    <h3 class="service-title">Technical Inspection & Testing</h3>
+                    <p class="service-desc">We know it is critical to your business that the products you receive, install, or deliver meet the highest quality standards. Our certified inspectors provide mill inspection, third-party testing, and quality assurance services to protect your investments and ensure compliance.</p>
+                    <ul class="service-features">
+                        <li>Mill & third-party inspection</li>
+                        <li>Non-destructive testing (NDT)</li>
+                        <li>API & ASME compliance verification</li>
+                        <li>Detailed inspection reports</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary service-btn" id="inspectionCta">Request Inspection Services</a>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Safety Section -->
-    <section id="safety" class="section service-section">
-        <div class="container">
-            <h2>Safety</h2>
-            <div class="service-content">
-                <p>Safety is our top priority. We maintain the highest standards of safety protocols and training to ensure the well-being of our team and clients.</p>
+    <section id="safety" class="section safety-section">
+        <div class="safety-bg">
+            <img src="images/safety.png" alt="Safety team briefing at industrial facility" class="safety-img" loading="lazy">
+            <div class="safety-overlay"></div>
+        </div>
+        <div class="container safety-container">
+            <div class="safety-content reveal">
+                <span class="section-badge section-badge-light">Safety First</span>
+                <h2 class="safety-title">Our Commitment to Zero Incidents</h2>
+                <p class="safety-desc">Safety is not just a policy — it is the foundation of everything we do. We maintain the highest standards of safety protocols, training, and compliance to ensure the well-being of our team, our clients, and the communities we work in.</p>
+                <div class="safety-pillars">
+                    <div class="safety-pillar">
+                        <div class="pillar-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <strong>Rigorous Training</strong>
+                        <p>All personnel undergo continuous safety certification and field training programs.</p>
+                    </div>
+                    <div class="safety-pillar">
+                        <div class="pillar-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><clipPath id="a"><rect x="0" y="0" width="24" height="24"/></clipPath><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+                        </div>
+                        <strong>Compliance Standards</strong>
+                        <p>Full adherence to OSHA, API, and client-specific HSE requirements on every job.</p>
+                    </div>
+                    <div class="safety-pillar">
+                        <div class="pillar-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                        </div>
+                        <strong>Team-First Culture</strong>
+                        <p>Every team member is empowered to stop work if safety concerns arise — no questions asked.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -122,62 +342,78 @@
     <!-- Contact Section -->
     <section id="contact" class="section contact-section">
         <div class="container">
-            <h2>Contact</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
+            <div class="section-header reveal">
+                <span class="section-badge">Get In Touch</span>
+                <h2 class="section-title">Contact Us</h2>
+                <p class="section-subtitle">Ready to discuss your project? Our team is standing by to provide expert guidance and competitive quotes.</p>
+            </div>
+
+            <div class="contact-grid">
+                <!-- Contact Info Cards -->
+                <div class="contact-info-col reveal">
+                    <div class="contact-card">
+                        <div class="contact-card-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
                         <h3>Location</h3>
-                        <p>Houston texas</p>
+                        <p>Houston, Texas<br>Energy Capital of the World</p>
                     </div>
-                    <div class="contact-item">
-                        <h3>Email</h3>
-                        <p><a href="mailto:sales@chris-es.com">sales@chris-es.com</a></p>
+                    <div class="contact-card">
+                        <div class="contact-card-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        </div>
+                        <h3>Email Us</h3>
+                        <p><a href="mailto:sales@chris-es.com" id="emailLink">sales@chris-es.com</a></p>
                     </div>
-                    <div class="contact-item">
+                    <div class="contact-card contact-card-emergency">
+                        <div class="contact-card-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.92a16 16 0 006.12 6.12l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                        </div>
                         <h3>Emergency Dispatch</h3>
-                        <p><a href="tel:123456789">123456789</a></p>
+                        <p><a href="tel:123456789" id="emergencyPhone">123-456-7890</a><br><small>Available 24/7 for emergencies</small></p>
                     </div>
                 </div>
-                
+
                 <!-- Enquiry Form -->
-                <div class="enquiry-form-container">
-                    <h3>Send us an Enquiry</h3>
-                    <form id="enquiryForm" class="enquiry-form">
-                        <div class="form-group">
-                            <label for="name">Full Name <span class="required">*</span></label>
-                            <input type="text" id="name" name="name" required>
+                <div class="enquiry-form-container reveal">
+                    <h3>Send Us an Enquiry</h3>
+                    <form id="enquiryForm" class="enquiry-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full Name <span class="required">*</span></label>
+                                <input type="text" id="name" name="name" placeholder="John Smith" required autocomplete="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" placeholder="john@company.com" required autocomplete="email">
+                            </div>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email Address <span class="required">*</span></label>
-                            <input type="email" id="email" name="email" required>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" autocomplete="tel">
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Service Interest</label>
+                                <select id="service" name="service">
+                                    <option value="">Select a service</option>
+                                    <option value="pipe-repair">Pipe Repair</option>
+                                    <option value="pipeline-services">Pipeline Services</option>
+                                    <option value="power-utilities">Power & Utilities</option>
+                                    <option value="inspection-testing">Technical Inspection & Testing</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="service">Service Interest</label>
-                            <select id="service" name="service">
-                                <option value="">Select a service</option>
-                                <option value="pipe-repair">Pipe Repair</option>
-                                <option value="pipeline-services">Pipeline Services</option>
-                                <option value="power-utilities">Power & Utilities</option>
-                                <option value="inspection-testing">Technical Inspection & Testing</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
+                        <div class="form-group form-group-full">
                             <label for="message">Message <span class="required">*</span></label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <textarea id="message" name="message" rows="5" placeholder="Describe your project or inquiry..." required></textarea>
                         </div>
-                        
-                        <button type="submit" class="submit-btn">Submit Enquiry</button>
-                        
-                        <div id="formMessage" class="form-message"></div>
+                        <button type="submit" class="submit-btn" id="submitEnquiryBtn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                            Submit Enquiry
+                        </button>
+                        <div id="formMessage" class="form-message" role="alert" aria-live="polite"></div>
                     </form>
                 </div>
             </div>
@@ -187,13 +423,55 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2019 Chris Energy Services. All rights reserved</p>
-                <div class="footer-contact">
-                    <p>Houston texas</p>
-                    <p>Emergency Dispatch: 123456789</p>
-                    <p><a href="mailto:sales@chris-es.com">sales@chris-es.com</a></p>
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-main">Chris Energy</span>
+                            <span class="logo-sub">Services</span>
+                        </div>
+                    </div>
+                    <p class="footer-tagline">Helping you deliver<br>the world's energy.</p>
+                    <p class="footer-copy">© 2026 Chris Energy Services.<br>All rights reserved.</p>
                 </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#pipe-repair">Pipe Repair</a></li>
+                        <li><a href="#pipeline-services">Pipeline Services</a></li>
+                        <li><a href="#power-utilities">Power & Utilities</a></li>
+                        <li><a href="#inspection-testing">Inspection & Testing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#safety">Safety</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Get In Touch</h4>
+                    <p>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        Houston, Texas
+                    </p>
+                    <p>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <a href="mailto:sales@chris-es.com">sales@chris-es.com</a>
+                    </p>
+                    <p>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 8.92a16 16 0 006.12 6.12l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                        <a href="tel:123456789">123-456-7890</a> <small>(24/7)</small>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Serving EPC Companies, Pipe Mills, Master Distributors, and Utility Operators across the United States.</p>
             </div>
         </div>
     </footer>
@@ -201,4 +479,3 @@
     <script src="js/script.js"></script>
 </body>
 </html>
-
