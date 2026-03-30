@@ -1,0 +1,13 @@
+{
+  "name": "Chris Energy Services — Field App",
+  "short_name": "CES Field",
+  "description": "Field operations app for appointments, stock management, and job completions.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0d1b2a",
+  "theme_color": "#f59e0b",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "../images/hero-bg.png", "sizes": "192x192", "type": "image/png" }
+  ]
+}
