@@ -403,6 +403,39 @@ function renderDashboard(){
       </button>
     </div>
 
+    <div class="dash-sec-title">Team Workload</div>
+    <div class="tech-workload" style="margin-bottom:28px">
+      ${USERS.map(tech=>{
+        const techAppts = appts.filter(a=>a.assignedTech===tech.id);
+        const active    = techAppts.filter(a=>a.status==='in-progress').length;
+        const pending   = techAppts.filter(a=>a.status==='pending').length;
+        const done      = techAppts.filter(a=>a.status==='completed').length;
+        const total     = techAppts.length;
+        const pct       = total>0?Math.round((done/total)*100):0;
+        return `
+        <div class="tech-row">
+          <div class="tech-row-left">
+            ${avatarHtml(tech)}
+            <div class="tech-row-info">
+              <div class="tech-row-name">${esc(tech.name)}</div>
+              <div class="tech-row-meta">
+                ${active>0?`<span class="tr-chip amber">${active} active</span>`:''}
+                ${pending>0?`<span class="tr-chip blue">${pending} pending</span>`:''}
+                <span class="tr-chip grey">${done} done</span>
+              </div>
+            </div>
+          </div>
+          <div class="tech-row-right">
+            <div class="tech-jobs-count">${total}</div>
+            <div class="tech-jobs-label">jobs</div>
+          </div>
+          <div class="tech-progress-bar">
+            <div class="tech-progress-fill" style="width:${pct}%" title="${pct}% complete"></div>
+          </div>
+        </div>`;
+      }).join('')}
+    </div>
+
     <div class="dash-sec-title">Recent Activity</div>
     <div class="activity-feed">
       ${acts.length===0?'<div class="act-item"><span class="act-msg">No activity yet.</span></div>':
