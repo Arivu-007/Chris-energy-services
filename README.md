@@ -1,6 +1,6 @@
 # Chris Energy Services
 
-Static marketing site plus a lightweight Node/Express backend used to process enquiry form submissions.
+Static marketing site plus a lightweight Node/Express backend used to process enquiry form submissions..
 
 ## Prerequisites
 
