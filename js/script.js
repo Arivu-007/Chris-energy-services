@@ -269,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(40, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
-        camera.position.set(18, 8, 22);
+        camera.position.set(18, 8, 28);
         camera.lookAt(0, 2, 0);
 
         const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
@@ -282,10 +282,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const gold = 0xffaa00;
 
         const wireMat = new THREE.MeshBasicMaterial({ color: cyan, wireframe: true, transparent: true, opacity: 0.7 });
-        const wireMatDim = new THREE.MeshBasicMaterial({ color: cyanDim, wireframe: true, transparent: true, opacity: 0.4 });
-        const solidGlow = new THREE.MeshBasicMaterial({ color: cyan, transparent: true, opacity: 0.15 });
-        const edgeMat = new THREE.LineBasicMaterial({ color: cyan, transparent: true, opacity: 0.9 });
-        const goldMat = new THREE.MeshBasicMaterial({ color: gold, transparent: true, opacity: 0.8 });
+        const wireMatDim = new THREE.MeshBasicMaterial({ color: cyanDim, wireframe: true, transparent: true, opacity: 0.3 });
+        const solidGlow = new THREE.MeshBasicMaterial({ color: cyan, transparent: true, opacity: 0.1 });
+        const edgeMat = new THREE.LineBasicMaterial({ color: cyan, transparent: true, opacity: 0.8 });
+        const goldMat = new THREE.MeshBasicMaterial({ color: gold, transparent: true, opacity: 0.7 });
 
         // Helper: add glowing edges to a mesh
         function addEdges(mesh, parent, mat) {
@@ -299,9 +299,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const pumpjacks = [];
 
-        function createHoloPumpjack(x, y, z, scale, speed, phase) {
+        function createHoloPumpjack(x, y, z, scale, speed, phase, rotY = 0) {
             const g = new THREE.Group();
             g.position.set(x, y, z);
+            g.rotation.y = rotY;
             g.scale.set(scale, scale, scale);
             scene.add(g);
 
@@ -410,26 +411,29 @@ document.addEventListener('DOMContentLoaded', () => {
             pumpjacks.push({ group: g, beamPivot, crankPivot, pitman, rod, speed, phase });
         }
 
-        // Two pumpjacks
-        createHoloPumpjack(0, 0, 0, 1, 1.2, 0);
-        createHoloPumpjack(-12, -1, -8, 0.75, 0.9, Math.PI);
+        // Add multiple pumpjacks for full-page depth
+        createHoloPumpjack(0, 0, 0, 1, 1.2, 0, 0);
+        createHoloPumpjack(-20, -1, -15, 0.8, 0.9, Math.PI, Math.PI * 0.15);
+        createHoloPumpjack(25, -3, -25, 1.2, 1.05, Math.PI / 2, -Math.PI * 0.1);
+        createHoloPumpjack(10, 2, 25, 0.6, 1.3, Math.PI / 4, Math.PI * 0.8);
+        createHoloPumpjack(-30, 4, 10, 0.7, 0.85, Math.PI * 1.5, Math.PI * 0.4);
 
         // --- Ground Grid ---
-        const gridHelper = new THREE.GridHelper(60, 40, cyan, cyanDim);
+        const gridHelper = new THREE.GridHelper(120, 80, cyan, cyanDim);
         gridHelper.position.y = -4;
-        gridHelper.material.opacity = 0.15;
+        gridHelper.material.opacity = 0.1;
         gridHelper.material.transparent = true;
         scene.add(gridHelper);
 
         // Secondary radial grid
-        const gridHelper2 = new THREE.PolarGridHelper(30, 8, 8, 64, cyanDim, cyanDim);
+        const gridHelper2 = new THREE.PolarGridHelper(60, 16, 8, 128, cyanDim, cyanDim);
         gridHelper2.position.y = -4;
-        gridHelper2.material.opacity = 0.08;
+        gridHelper2.material.opacity = 0.05;
         gridHelper2.material.transparent = true;
         scene.add(gridHelper2);
 
         // --- Floating Particle Network ---
-        const particleCount = 120;
+        const particleCount = 250;
         const particles = [];
         const pGeo = new THREE.SphereGeometry(0.08, 8, 8);
         const pMat = new THREE.MeshBasicMaterial({ color: cyan, transparent: true, opacity: 0.8 });
@@ -437,34 +441,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
         for (let i = 0; i < particleCount; i++) {
             const m = new THREE.Mesh(pGeo, i % 5 === 0 ? pMatGold : pMat);
-            const px = (Math.random() - 0.5) * 50;
-            const py = (Math.random() - 0.3) * 20;
-            const pz = (Math.random() - 0.5) * 40;
+            const px = (Math.random() - 0.5) * 100;
+            const py = (Math.random() - 0.3) * 40;
+            const pz = (Math.random() - 0.5) * 80;
             m.position.set(px, py, pz);
             scene.add(m);
-            particles.push({ mesh: m, baseX: px, baseY: py, baseZ: pz, speed: 0.3 + Math.random() * 0.7, phase: Math.random() * Math.PI * 2 });
+            particles.push({ mesh: m, baseX: px, baseY: py, baseZ: pz, speed: 0.2 + Math.random() * 0.5, phase: Math.random() * Math.PI * 2 });
         }
 
         // Connection lines between nearby particles
         const lineGeo = new THREE.BufferGeometry();
-        const maxLines = 300;
+        const maxLines = 600;
         const linePositions = new Float32Array(maxLines * 6);
         lineGeo.setAttribute('position', new THREE.BufferAttribute(linePositions, 3));
         lineGeo.setDrawRange(0, 0);
-        const lineMat = new THREE.LineBasicMaterial({ color: cyan, transparent: true, opacity: 0.15 });
+        const lineMat = new THREE.LineBasicMaterial({ color: cyan, transparent: true, opacity: 0.1 });
         const linesMesh = new THREE.LineSegments(lineGeo, lineMat);
         scene.add(linesMesh);
 
         // --- Subtle Lighting ---
         scene.add(new THREE.AmbientLight(0x003355, 0.5));
 
-        // --- Mouse Interaction ---
+        // --- Interaction State ---
         let mouseX = 0, mouseY = 0;
+        let scrollY = window.scrollY;
+        
         const halfX = window.innerWidth / 2, halfY = window.innerHeight / 2;
         document.addEventListener('mousemove', e => {
-            mouseX = (e.clientX - halfX) * 0.004;
-            mouseY = (e.clientY - halfY) * 0.004;
+            mouseX = (e.clientX - halfX) * 0.005;
+            mouseY = (e.clientY - halfY) * 0.005;
         });
+
+        window.addEventListener('scroll', () => {
+            scrollY = window.scrollY;
+        }, { passive: true });
 
         window.addEventListener('resize', () => {
             if (!canvas.parentElement) return;
@@ -504,8 +514,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Animate particles (gentle float)
             particles.forEach(p => {
-                p.mesh.position.y = p.baseY + Math.sin(t * p.speed + p.phase) * 0.8;
-                p.mesh.position.x = p.baseX + Math.cos(t * p.speed * 0.5 + p.phase) * 0.3;
+                p.mesh.position.y = p.baseY + Math.sin(t * p.speed + p.phase) * 1.2;
+                p.mesh.position.x = p.baseX + Math.cos(t * p.speed * 0.5 + p.phase) * 0.5;
             });
 
             // Update connection lines
@@ -516,7 +526,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const a = particles[i].mesh.position;
                     const b = particles[j].mesh.position;
                     const d = a.distanceTo(b);
-                    if (d < 6) {
+                    if (d < 8) {
                         const idx = lineIdx * 6;
                         posArr[idx] = a.x; posArr[idx+1] = a.y; posArr[idx+2] = a.z;
                         posArr[idx+3] = b.x; posArr[idx+4] = b.y; posArr[idx+5] = b.z;
@@ -527,10 +537,21 @@ document.addEventListener('DOMContentLoaded', () => {
             linesMesh.geometry.setDrawRange(0, lineIdx * 2);
             linesMesh.geometry.attributes.position.needsUpdate = true;
 
-            // Camera parallax
-            camera.position.x += (18 + mouseX * 8 - camera.position.x) * 0.03;
-            camera.position.y += (8 - mouseY * 5 - camera.position.y) * 0.03;
-            camera.lookAt(0, 2, 0);
+            // Camera parallax + Scroll dynamics
+            const scrollFactor = scrollY * 0.0015;
+            const camRadius = 28;
+            
+            // As user scrolls, camera rotates around the scene and moves down
+            const targetX = Math.sin(scrollFactor + mouseX) * camRadius;
+            const targetZ = Math.cos(scrollFactor + mouseX) * camRadius;
+            const targetY = 8 - scrollFactor * 4 - mouseY * 5;
+            
+            camera.position.x += (targetX - camera.position.x) * 0.04;
+            camera.position.y += (targetY - camera.position.y) * 0.04;
+            camera.position.z += (targetZ - camera.position.z) * 0.04;
+            
+            // Look slightly down and rotate look target slowly based on scroll
+            camera.lookAt(Math.sin(scrollFactor) * 5, 2 - scrollFactor * 2, Math.cos(scrollFactor) * 5);
 
             renderer.render(scene, camera);
         }
