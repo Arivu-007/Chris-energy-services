@@ -28,6 +28,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static('.'));
 
 const transporter = nodemailer.createTransport({
     host: SMTP_HOST,
